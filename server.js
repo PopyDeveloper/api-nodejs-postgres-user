@@ -45,7 +45,10 @@ fastify.delete("/deleteUser/:id", async (request, reply) => {
 });
 
 try {
-  await fastify.listen({ port: process.env.PORT ?? 3333 });
+  await fastify.listen({
+    host: "0.0.0.0",
+    port: process.env.PORT ?? 3333,
+  });
 } catch (err) {
   fastify.log.error(err);
   process.exit(1);
